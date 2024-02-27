@@ -7,6 +7,7 @@ import { type Env, type Schema } from 'hono/types'
 // We are not using `node:path` to remain compatible with Edge runtimes.
 import { default as p } from 'path-browserify'
 
+import { transaction } from './routes/transaction.js'
 import { type FrameContext, type FrameResponse, type Pretty } from './types.js'
 import { fromQuery } from './utils/fromQuery.js'
 import { getButtonValues } from './utils/getButtonValues.js'
@@ -177,6 +178,8 @@ export class FrogBase<
   secret: FrogConstructorParameters['secret'] | undefined
   /** Whether or not frames should be verified. */
   verify: FrogConstructorParameters['verify'] = true
+
+  experimental_transaction = transaction.bind(this as any)
 
   constructor({
     assetsPath,
