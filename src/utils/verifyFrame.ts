@@ -1,5 +1,5 @@
 import { hexToBytes } from '@noble/curves/abstract/utils'
-import { type TrustedData } from '../types.js'
+import { type TrustedData } from '../types/frame.js'
 import { parsePath } from './parsePath.js'
 
 export type VerifyFrameParameters = {
